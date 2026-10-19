@@ -1,0 +1,14 @@
+#163B65 - Azul-marinho 
+    cor principal: Para o logótipo, a barra de navegação, os títulos importantes e elementos que representem a identidade da marca.
+#3478C8 - Azul vivo 
+    interação: Para botões como «Pesquisar», «Anunciar imóvel», links e elementos selecionados.
+#FFFFFF - Branco
+    fundo principal: Para o fundo das páginas, cartões dos alojamentos, formulários e áreas de conteúdo.
+#F3F5F8 - Cinzento muito claro
+    fundo secundário: Para separar secções, criar fundos alternados e destacar áreas de filtros ou pesquisa sem recorrer a linhas em excesso.
+#D1D5DB - Cinzento médio-claro 
+    separadores: Para bordas dos cartões, divisórias, contornos dos campos de formulário e elementos discretos.
+#263445 - Cinzento-escuro 
+    texto: Para parágrafos, descrições dos quartos, preços, localização e informação geral. É menos agressivo visualmente do que o preto puro.
+#111827 - Preto suave 
+    títulos: Para títulos de maior destaque, como «Encontra o teu próximo quarto», e outros elementos que precisem de forte contraste.
