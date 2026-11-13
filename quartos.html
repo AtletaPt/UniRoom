@@ -952,7 +952,7 @@ Olá, tenho interesse neste alojamento e gostaria de obter mais informações. O
       </div>
     `;
       } else {
-        // Caso tenha menos de 5 fotos (ex: 4 fotos): Mostra apenas os quadrados correspondentes
+        // Caso tenha menos de 5 fotos: Mostra apenas os quadrados correspondentes
         htmlGaleria = `
       <figure class="overflow-hidden rounded-xl bg-slate-200 md:row-span-2 cursor-pointer" onclick="abrirLightbox(0)">
         <img src="${fotos[0]}" alt="Foto principal" class="h-64 w-full object-cover sm:h-80 md:h-full md:min-h-[420px] transition-transform duration-300" />
@@ -971,7 +971,7 @@ Olá, tenho interesse neste alojamento e gostaria de obter mais informações. O
 
       galeriaContainer.innerHTML = htmlGaleria;
 
-      // 5. Lógica do Modal / Lightbox (Worten style)
+      // 5. Lógica do Modal / Lightbox
       let indiceAtual = 0;
 
       function abrirLightbox(index) {
