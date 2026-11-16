@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Conta · UniRoom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    />
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="js/menu.js" defer></script>
+  </head>
+  <body
+    class="bg-slate-100 text-slate-900 font-['IBM_Plex_Sans',sans-serif] antialiased min-h-screen flex flex-col"
+  >
+    <!-- CABEÇALHO -->
+    <header class="bg-white border-b border-slate-200">
+      <div
+        class="mx-auto max-w-6xl px-4 py-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-3"
+      >
+        <a href="home.html" class="flex items-baseline gap-2">
+          <span
+            class="font-['Bricolage_Grotesque',sans-serif] text-2xl font-bold tracking-tight"
+            >UniRoom</span
+          >
+          <span
+            class="hidden sm:inline text-xs uppercase tracking-widest text-slate-500"
+            >encontra o teu quarto ideal</span
+          >
+        </a>
+        <button
+          type="button"
+          id="menu-botao"
+          aria-expanded="false"
+          aria-controls="menu-principal"
+          class="md:hidden rounded border border-slate-300 px-3 py-1.5 text-sm font-medium hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-600"
+        >
+          <span id="menu-icone" aria-hidden="true">☰</span> Menu
+        </button>
+        <nav
+          id="menu-principal"
+          aria-label="Principal"
+          class="hidden md:block w-full md:w-auto"
+        >
+          <ul
+            class="flex flex-col md:flex-row md:items-center gap-1 text-sm border-t border-slate-200 pt-3 md:border-0 md:pt-0"
+          >
+            <li>
+              <a
+                href="home.html"
+                class="block rounded px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                >Início</a
+              >
+            </li>
+            <li>
+              <a
+                href="pesquisar.html"
+                class="block rounded px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                >Pesquisar</a
+              >
+            </li>
+            <li>
+              <a
+                href="anunciar.html"
+                class="block rounded px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                >Anunciar</a
+              >
+            </li>
+            <li>
+              <a
+                href="como-funciona.html"
+                class="block rounded px-3 py-1.5 text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                >Como funciona?</a
+              >
+            </li>
+            <li>
+              <a
+                href="entrar-uniroom.html"
+                class="block rounded px-3 py-1.5 bg-sky-700 text-white font-medium hover:bg-sky-800"
+                >Entrar</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="flex-1 px-4 py-12 flex items-start justify-center">
+      <div class="w-full max-w-md flex flex-col gap-6">
+        <div class="text-center">
+          <h1
+            class="font-['Bricolage_Grotesque',sans-serif] text-3xl font-bold tracking-tight"
+          >
+            Criar conta
+          </h1>
+          <p class="mt-2 text-sm text-slate-600">
+            Junta-te ao UniRoom como estudante ou senhorio
+          </p>
+        </div>
+
+        <form
+          id="form-registo"
+          action="#"
+          method="post"
+          class="rounded-lg border border-slate-200 bg-white p-6 flex flex-col gap-4 shadow-sm"
+        >
+          <!-- Seleção de Perfil -->
+          <div class="flex flex-col gap-1.5">
+            <span class="text-sm font-medium">Tipo de conta</span>
+            <div class="grid grid-cols-2 gap-3">
+              <label class="cursor-pointer">
+                <input
+                  type="radio"
+                  name="tipo_conta"
+                  value="estudante"
+                  checked
+                  class="peer sr-only"
+                />
+                <div
+                  class="rounded-lg border border-slate-300 bg-slate-50 p-3 text-center text-sm font-medium text-slate-700 peer-checked:border-sky-700 peer-checked:bg-sky-50 peer-checked:text-sky-800 transition-colors"
+                >
+                  Estudante
+                </div>
+              </label>
+
+              <label class="cursor-pointer">
+                <input
+                  type="radio"
+                  name="tipo_conta"
+                  value="senhorio"
+                  class="peer sr-only"
+                />
+                <div
+                  class="rounded-lg border border-slate-300 bg-slate-50 p-3 text-center text-sm font-medium text-slate-700 peer-checked:border-sky-700 peer-checked:bg-sky-50 peer-checked:text-sky-800 transition-colors"
+                >
+                  Senhorio
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Nome Completo -->
+          <div class="flex flex-col gap-1">
+            <label for="nome" class="text-sm font-medium">Nome completo</label>
+            <input
+              id="nome"
+              name="nome"
+              type="text"
+              required
+              autocomplete="name"
+              placeholder="Ex: João Silva"
+              class="rounded border border-slate-300 bg-slate-50 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-600"
+            />
+          </div>
+
+          <!-- Email -->
+          <div class="flex flex-col gap-1">
+            <label for="email" class="text-sm font-medium">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="nome@exemplo.pt"
+              class="rounded border border-slate-300 bg-slate-50 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-600"
+            />
+          </div>
+
+          <!-- Palavra-passe -->
+          <div class="flex flex-col gap-1">
+            <label for="password" class="text-sm font-medium"
+              >Palavra-passe</label
+            >
+            <div class="relative">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                required
+                minlength="8"
+                autocomplete="new-password"
+                placeholder="Cria uma palavra-passe segura"
+                class="w-full rounded border border-slate-300 bg-slate-50 pl-3 pr-20 py-2 focus:outline-none focus:ring-2 focus:ring-sky-600"
+              />
+              <button
+                type="button"
+                id="mostrar-password"
+                aria-controls="password"
+                aria-pressed="false"
+                class="absolute inset-y-0 right-0 px-3 text-xs font-semibold text-sky-700 hover:underline focus:outline-none rounded"
+              >
+                Mostrar
+              </button>
+            </div>
+
+            <!-- Lista de Recomendações / Requisitos em tempo real -->
+            <ul
+              class="mt-2 space-y-1 text-xs text-slate-500"
+              id="requisitos-password"
+            >
+              <li
+                id="req-tamanho"
+                class="flex items-center gap-1.5 transition-colors"
+              >
+                <span>○</span> Pelo menos 8 caracteres
+              </li>
+              <li
+                id="req-maiuscula"
+                class="flex items-center gap-1.5 transition-colors"
+              >
+                <span>○</span> Pelo menos uma letra maiúscula (A-Z)
+              </li>
+              <li
+                id="req-minuscula"
+                class="flex items-center gap-1.5 transition-colors"
+              >
+                <span>○</span> Pelo menos uma letra minúscula (a-z)
+              </li>
+              <li
+                id="req-numero"
+                class="flex items-center gap-1.5 transition-colors"
+              >
+                <span>○</span> Pelo menos um número (0-9)
+              </li>
+              <li
+                id="req-especial"
+                class="flex items-center gap-1.5 transition-colors"
+              >
+                <span>○</span> Pelo menos um símbolo (!@#$%...)
+              </li>
+            </ul>
+          </div>
+
+          <!-- Confirmar Palavra-passe -->
+          <div class="flex flex-col gap-1">
+            <label for="confirmar-password" class="text-sm font-medium"
+              >Confirmar palavra-passe</label
+            >
+            <input
+              id="confirmar-password"
+              name="confirmar_password"
+              type="password"
+              required
+              minlength="8"
+              autocomplete="new-password"
+              placeholder="Repete a palavra-passe"
+              class="w-full rounded border border-slate-300 bg-slate-50 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-sky-600"
+            />
+            <p id="erro-password" class="hidden text-xs text-red-600 mt-1">
+              As palavras-passe não coincidem.
+            </p>
+          </div>
+
+          <!-- Termos -->
+          <label class="flex items-start gap-2 text-xs text-slate-600 mt-1">
+            <input
+              id="termos"
+              name="termos"
+              type="checkbox"
+              required
+              class="mt-0.5 h-4 w-4 rounded border-slate-300 accent-sky-700"
+            />
+            <span>
+              Li e aceito os
+              <a href="#" class="text-sky-700 hover:underline"
+                >Termos de Utilização</a
+              >
+              e a
+              <a href="#" class="text-sky-700 hover:underline"
+                >Política de Privacidade</a
+              >.
+            </span>
+          </label>
+
+          <button
+            type="submit"
+            class="mt-2 rounded bg-sky-700 text-white font-semibold py-2.5 hover:bg-sky-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-600 transition-colors"
+          >
+            Criar conta
+          </button>
+        </form>
+
+        <p class="text-center text-sm text-slate-600">
+          Já tens conta?
+          <a
+            href="entrar-uniroom.html"
+            class="font-medium text-sky-700 hover:underline"
+            >Iniciar sessão</a
+          >
+        </p>
+      </div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="border-t border-slate-200">
+      <div
+        class="mx-auto max-w-6xl px-4 py-6 text-xs text-slate-500 flex flex-wrap justify-between gap-2"
+      >
+        <p>UniRoom · projeto para Aplicações Web</p>
+        <p>Anuncia e procura o teu quarto perto da tua universidade</p>
+      </div>
+    </footer>
+
+    <!-- JavaScript de Validação e Mostrar/Esconder Password -->
+    <script>
+      const botaoMostrar = document.getElementById("mostrar-password");
+      const campoPassword = document.getElementById("password");
+      const campoConfirmar = document.getElementById("confirmar-password");
+      const erroPassword = document.getElementById("erro-password");
+      const formRegisto = document.getElementById("form-registo");
+
+      // Elementos da checklist de segurança
+      const reqTamanho = document.getElementById("req-tamanho");
+      const reqMaiuscula = document.getElementById("req-maiuscula");
+      const reqMinuscula = document.getElementById("req-minuscula");
+      const reqNumero = document.getElementById("req-numero");
+      const reqEspecial = document.getElementById("req-especial");
+
+      // Função para atualizar o estado visual sobre o cumprimento de cada requisito
+      function atualizarRequisito(elemento, valido) {
+        const icone = elemento.querySelector("span");
+        if (valido) {
+          elemento.classList.remove("text-slate-500", "text-red-600");
+          elemento.classList.add("text-emerald-600", "font-medium");
+          icone.textContent = "✓";
+        } else {
+          elemento.classList.remove("text-emerald-600", "font-medium");
+          elemento.classList.add("text-slate-500");
+          icone.textContent = "○";
+        }
+      }
+
+      // Função que valida todos os critérios da palavra-passe
+      function validarForcaPassword(valor) {
+        const temTamanho = valor.length >= 8;
+        const temMaiuscula = /[A-Z]/.test(valor);
+        const temMinuscula = /[a-z]/.test(valor);
+        const temNumero = /[0-9]/.test(valor);
+        const temEspecial = /[^A-Za-z0-9]/.test(valor);
+
+        atualizarRequisito(reqTamanho, temTamanho);
+        atualizarRequisito(reqMaiuscula, temMaiuscula);
+        atualizarRequisito(reqMinuscula, temMinuscula);
+        atualizarRequisito(reqNumero, temNumero);
+        atualizarRequisito(reqEspecial, temEspecial);
+
+        return (
+          temTamanho && temMaiuscula && temMinuscula && temNumero && temEspecial
+        );
+      }
+
+      // Verificar em tempo real enquanto o utilizador escreve
+      campoPassword.addEventListener("input", function () {
+        validarForcaPassword(campoPassword.value);
+      });
+
+      // Alternar visibilidade da palavra-passe
+      botaoMostrar.addEventListener("click", function () {
+        const estaEscondida = campoPassword.getAttribute("type") === "password";
+        campoPassword.setAttribute("type", estaEscondida ? "text" : "password");
+        campoConfirmar.setAttribute(
+          "type",
+          estaEscondida ? "text" : "password",
+        );
+        botaoMostrar.textContent = estaEscondida ? "Esconder" : "Mostrar";
+        botaoMostrar.setAttribute("aria-pressed", estaEscondida);
+      });
+
+      // Validação final ao submeter o formulário
+      formRegisto.addEventListener("submit", function (e) {
+        const passwordSegura = validarForcaPassword(campoPassword.value);
+        const passwordsCoincidem = campoPassword.value === campoConfirmar.value;
+
+        // 1. Se a palavra-passe não for segura, bloqueia e destaca a vermelho os requisitos em falta
+        if (!passwordSegura) {
+          e.preventDefault();
+          campoPassword.classList.add("border-red-500");
+          document
+            .querySelectorAll("#requisitos-password li.text-slate-500")
+            .forEach((item) => {
+              item.classList.remove("text-slate-500");
+              item.classList.add("text-red-600");
+            });
+        } else {
+          campoPassword.classList.remove("border-red-500");
+        }
+
+        // 2. Se as palavras-passe não coincidirem, bloqueia e mostra aviso
+        if (!passwordsCoincidem) {
+          e.preventDefault();
+          erroPassword.classList.remove("hidden");
+          campoConfirmar.classList.add("border-red-500");
+        } else {
+          erroPassword.classList.add("hidden");
+          campoConfirmar.classList.remove("border-red-500");
+        }
+      });
+    </script>
+  </body>
+</html>

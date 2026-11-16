@@ -577,7 +577,7 @@
                   required
                   class="w-full resize-y rounded-lg border border-slate-300 px-3 py-3 outline-none focus:border-sky-600 focus:ring-2 focus:ring-sky-100"
                 >
-Olá, tenho interesse neste alojamento e gostaria de obter mais informações. Obrigado.</textarea
+                Olá, tenho interesse neste alojamento e gostaria de obter mais informações. Obrigado.</textarea
                 >
               </div>
 
@@ -949,22 +949,19 @@ Olá, tenho interesse neste alojamento e gostaria de obter mais informações. O
             Ver todas as fotografias (${totalFotos})
           </div>
         </figure>
-      </div>
-    `;
+      </div>`;
       } else {
         // Caso tenha menos de 5 fotos: Mostra apenas os quadrados correspondentes
         htmlGaleria = `
       <figure class="overflow-hidden rounded-xl bg-slate-200 md:row-span-2 cursor-pointer" onclick="abrirLightbox(0)">
         <img src="${fotos[0]}" alt="Foto principal" class="h-64 w-full object-cover sm:h-80 md:h-full md:min-h-[420px] transition-transform duration-300" />
       </figure>
-      <div class="grid grid-cols-2 gap-3">
-    `;
+      <div class="grid grid-cols-2 gap-3">`;
         for (let i = 1; i < totalFotos; i++) {
           htmlGaleria += `
         <figure class="overflow-hidden rounded-xl bg-slate-200 cursor-pointer" onclick="abrirLightbox(${i})">
           <img src="${fotos[i]}" alt="Foto ${i + 1}" class="h-40 w-full object-cover sm:h-48  transition-transform duration-300" loading="lazy" />
-        </figure>
-      `;
+        </figure>`;
         }
         htmlGaleria += `</div>`;
       }
