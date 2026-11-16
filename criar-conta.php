@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt->execute([$nome, $email, $hash, $tipo_conta]);
 
             // 4. Iniciar sessão automaticamente e redirecionar para o login ou home
-            header('Location: entrar-uniroom.php?registado=1');
+            header('Location: entrar-uniroom.html?registado=1');
             exit;
         }
     }
