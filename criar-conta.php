@@ -1,3 +1,52 @@
+<?php
+session_start();
+require __DIR__ . '/bd/ligacao.php';
+
+$erro = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $tipo_conta = $_POST['tipo_conta'] ?? 'estudante';
+    $nome       = trim($_POST['nome'] ?? '');
+    $email      = trim($_POST['email'] ?? '');
+    $password   = $_POST['password'] ?? '';
+    $confirmar  = $_POST['confirmar_password'] ?? '';
+
+    // 1. Validações básicas no servidor
+    if ($nome === '' || $email === '' || $password === '') {
+        $erro = 'Preenche todos os campos obrigatórios.';
+    } elseif ($password !== $confirmar) {
+        $erro = 'As palavras-passe não coincidem.';
+    } elseif (
+        strlen($password) < 8 ||
+        !preg_match('/[A-Z]/', $password) ||
+        !preg_match('/[a-z]/', $password) ||
+        !preg_match('/[0-9]/', $password) ||
+        !preg_match('/[^A-Za-z0-9]/', $password)
+    ) {
+        $erro = 'A palavra-passe não cumpre os requisitos mínimos de segurança.';
+    } else {
+        // 2. Verificar se o email já está registado
+        $stmt = $bd->prepare('SELECT id FROM utilizadores WHERE email = ?');
+        $stmt->execute([$email]);
+
+        if ($stmt->fetch()) {
+            $erro = 'Este endereço de email já está registado.';
+        } else {
+            // 3. Encriptar a palavra-passe e inserir na base de dados
+            $hash = password_hash($password, PASSWORD_DEFAULT);
+
+            $sql = 'INSERT INTO utilizadores (nome, email, palavra_passe, tipo_conta) VALUES (?, ?, ?, ?)';
+            $stmt = $bd->prepare($sql);
+            $stmt->execute([$nome, $email, $hash, $tipo_conta]);
+
+            // 4. Iniciar sessão automaticamente e redirecionar para o login ou home
+            header('Location: entrar-uniroom.php?registado=1');
+            exit;
+        }
+    }
+}
+?>
+
 <!doctype html>
 <html lang="pt-PT">
   <head>
@@ -103,11 +152,16 @@
 
         <form
           id="form-registo"
-          action="#"
+          action="criar-conta.php"
           method="post"
           class="rounded-lg border border-slate-200 bg-white p-6 flex flex-col gap-4 shadow-sm"
         >
-          <!-- Seleção de Perfil -->
+        <?php if ($erro !== ''): ?>
+          <div class="rounded-lg border border-red-300 bg-red-50 p-3 text-sm text-red-700">
+            <?= htmlspecialchars($erro) ?>
+          </div>
+        <?php endif; ?> 
+        <!-- Seleção de Perfil -->
           <div class="flex flex-col gap-1.5">
             <span class="text-sm font-medium">Tipo de conta</span>
             <div class="grid grid-cols-2 gap-3">
